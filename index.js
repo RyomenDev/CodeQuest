@@ -3,24 +3,40 @@ const path = require("path");
 const routes = require("./routes");
 
 // Create an instance of the express application
-const app = express(); 
+const app = express();
 
-// Set EJS as the templating engine
-app.set("view engine", "ejs");
+try {
+  // Set EJS as the templating engine
+  app.set("view engine", "ejs");
+
+  // Set the static assets directory (for serving CSS, JavaScript, images, etc.)
+  app.use(express.static(path.join(__dirname, "public")));
+
+  // Use the routes defined in the routes module
+  app.use("/", routes);
+} catch (error) {
+  console.error("Error setting up application:", error);
+}
 
 // Set the static assets directory (for serving CSS, JavaScript, images, etc.)
 app.use(express.static(path.join(__dirname, "public")));
 
 // Use the routes defined in the routes module
-app.use("/", routes); 
+app.use("/", routes);
 
 // Set the port for the server to listen on
 const port = process.env.PORT || 3000;
 
-// Start the server and listen on the specified port
-app.listen(port, () => {
-  console.log("Server is running on port " + port);
-});
+// Set the port for the server to listen on
+const port = 3000;
+try {
+  // Start the server and listen on the specified port
+  app.listen(port, () => {
+    console.log("Server is running on port " + port);
+  });
+} catch (error) {
+  console.error("Error starting server:", error);
+}
 
 // Binary Search Tree -> ['binary', 'search', 'tree', 'orange'] -> ['binary', 'search', 'tree']
 // Keywords -> []
