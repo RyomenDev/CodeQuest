@@ -27,8 +27,6 @@ app.use("/", routes);
 // Set the port for the server to listen on
 const port = process.env.PORT || 3000;
 
-// Set the port for the server to listen on
-const port = 3000;
 try {
   // Start the server and listen on the specified port
   app.listen(port, () => {
