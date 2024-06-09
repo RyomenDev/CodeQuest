@@ -2,6 +2,15 @@
     "version": 2,
     "builds": [
         {
+            "src": "package.json",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": [
+                    "package.json"
+                ]
+            }
+        },
+        {
             "src": "./index.js",
             "use": "@vercel/node"
         },
