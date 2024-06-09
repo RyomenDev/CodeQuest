@@ -68,5 +68,3 @@ function renderQuestion(req, res) {
 
 // Exporting the renderQuestion function to be used in other modules
 module.exports = { renderQuestion };
-
-

@@ -1,10 +1,10 @@
 const express = require("express");
-const {setupMiddlewares} = require("./middlewares/index");
+const { setupMiddlewares } = require("./middlewares/index");
 
 // Create an instance of the express application
 const app = express();
 
-setupMiddlewares(app); 
+setupMiddlewares(app);
 
 // Set the port for the server to listen on
 const port = process.env.PORT || 3000;
