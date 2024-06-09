@@ -24,6 +24,6 @@
         "words-to-numbers": "^1.5.1"
     },
     "engines": {
-        "node": "14.x"
+        "node": "20.x"
     }
 }
