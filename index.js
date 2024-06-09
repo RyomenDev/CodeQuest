@@ -1,28 +1,10 @@
 const express = require("express");
-const path = require("path");
-const routes = require("./routes");
+const {setupMiddlewares} = require("./middlewares/index");
 
 // Create an instance of the express application
 const app = express();
 
-try {
-  // Set EJS as the templating engine
-  app.set("view engine", "ejs");
-
-  // Set the static assets directory (for serving CSS, JavaScript, images, etc.)
-  app.use(express.static(path.join(__dirname, "public")));
-
-  // Use the routes defined in the routes module
-  app.use("/", routes);
-} catch (error) {
-  console.error("Error setting up application:", error);
-}
-
-// Set the static assets directory (for serving CSS, JavaScript, images, etc.)
-app.use(express.static(path.join(__dirname, "public")));
-
-// Use the routes defined in the routes module
-app.use("/", routes);
+setupMiddlewares(app); 
 
 // Set the port for the server to listen on
 const port = process.env.PORT || 3000;
